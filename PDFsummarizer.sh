@@ -19,7 +19,10 @@ do
   #Sanitizing file
   #Removes non-alpha characters
   sed -i tempFile.txt -e "s/[^ a-zA-Z']//g" -e 's/ \+/ /' 
-  
+  cat tempFile.txt | tr -d "\n\r" > tempFile.txt
+    
+  cat tempFile.txt
+    
   #Removing duplicate lines caused for a number of reasons
   cat tempFile.txt | sort | uniq > tempFile.txt
   
@@ -27,12 +30,3 @@ do
   textrank -t tempFile.txt -r .01 >> output.txt
 
 done
-
-
-
-
-
-
-
-
-
